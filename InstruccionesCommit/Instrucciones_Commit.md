@@ -4,7 +4,7 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Mostrando los tipos de moneda disponibles para procesar un pago</strong></h2>
+  <h2>Commit - <strong>Mostrando las plataformas de pago disponibles con Laravel y Bootstrap</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
@@ -15,7 +15,7 @@
       <li>
         Edición de la función <code>index()</code>
         <br>
-        <em>*No olvidar importar el modelo <code>use App\Currency;</code></em>
+        <em>*No olvidar importar el modelo <code>use App\PaymentPlatform;</code></em>
       </li>
     </ul>
    </li>

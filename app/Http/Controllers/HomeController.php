@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 /*  */
 use App\Currency;
+use App\PaymentPlatform;
 /*  */
 
 class HomeController extends Controller
@@ -28,9 +29,11 @@ class HomeController extends Controller
     {
         /*  */
         $currencies = Currency::all();
+        $paymentPlatforms = PaymentPlatform::all();
         /*  */
         return view('home', /*  */ with( [
             'currencies' => $currencies,
+            'paymentPlatforms' => $paymentPlatforms,
         ])/*  */);
     }
 }
