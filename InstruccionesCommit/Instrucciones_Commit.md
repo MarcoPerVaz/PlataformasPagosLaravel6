@@ -4,39 +4,29 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Creación del proyecto</strong></h2>
+  <h2>Commit - <strong>Creando los modelos y tablas esenciales para la plataforma de pagos</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-     <li>
-        Instalar Laragon sino se tiene
-        <ul>
-          <li>
-            Descargar la versión que se desee usar
-            <pre><a href="https://laragon.org/download/">Descargar Laragon</a></pre>
-          </li>
-        </ul>
-    </li>
-    <li>Creación y edición del archivo <code>InstruccionesCommit/Instrucciones_Commit.md</code></li>
-    <li>Edición del archivo readme.md</li>
     <li>
-      Creación del proyecto LaravelSistemaPagos-laravel6
-      <pre>composer create-project --prefer-dist laravel/laravel LaravelSistemaPagos-laravel6 "6.0.*"</pre>
+      Creación del modelo <code>app\PaymentPlatform.php</code>(edición) junto con su migración 
+      <code>database\migrations\create_payment_platforms_table.php</code>(edición)
+      <pre>php artisan make:model PaymentPlatform -m</pre>
     </li>
-    <li>Instalar el editor de código que mas te guste</li>
+    <li>
+      Creación del modelo <code>app\Currency.php</code> junto con su migración 
+      <code>database\migrations\create_currencies_table.php</code>(edición)
+      <pre>php artisan make:model Currency -m</pre>
+    </li>
   </ol>
   <!-- End Commit instructions -->
   
   <!-- Notes -->
   <h3>Notas:</h3>
+
   <ul>
-     <li>
-        Laragon es un entorno de desarrollo para aplicaciones web
-        <pre><a href="https://laragon.org/">Ir a Laragon</a></pre>
-        <pre><a href="https://laragon.org/docs/">Documentación de Laragon</a></pre>
-        <li>Instala lo necesario para desarrollar en Laravel</li>
-      </li>
+
   </ul>
     
   <em>
