@@ -43,15 +43,25 @@
                     <div class="row mt-3">
                         <div class="col">
                             <label>Select the desire payment platform:</label>
-                            <div class="form-group">
+                            <div id="toggler" class="form-group">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
+
                                     @foreach ($paymentPlatforms as $paymentPlatform)
-                                        <label class="btn btn-outline-secondary rounded m-2 p-1">
+                                        <label data-target="#{{ $paymentPlatform->name }}Collapse" data-toggle="collapse" 
+                                                class="btn btn-outline-secondary rounded m-2 p-1">
                                             <input type="radio" name="payment_platform" value="{{ $paymentPlatform->id }}" required>
-                                            <img src="{{ asset($paymentPlatform->image) }}" alt="" class="img-thumbnail">
+                                            <img src="{{ asset($paymentPlatform->image) }}" class="img-thumbnail">
                                         </label>
                                     @endforeach
+
                                 </div>
+
+                            @foreach ($paymentPlatforms as $paymentPlatform)
+                                <div id="{{ $paymentPlatform->name }}Collapse" data-parent="#toggler" class="collapse">
+                                    @includeIf('components.' . strtolower($paymentPlatform->name) . '-collapse')
+                                </div>
+                            @endforeach
+                            
                             </div>
                         </div>
                     </div>
@@ -76,4 +86,7 @@
         *mt_rand(500, 100000) / 100 Crea cantidades aleatorias con números decimales cada vez que se actualiza el navegador
         *{{ $currency->iso }} Obtiene el valor del foreach y del campo iso de la base de datos
         *strtoupper($currency->iso) Convierte a mayúscula la variable sin afectar el campo iso en la base de datos
+        *@foreach ($paymentPlatforms as $paymentPlatform) permite recorrer y mostra la información de las plataformas de pago
+        *strtolower($paymentPlatform) Convierte a minúscula la variable sin afectar el campo paymentPlatform en la base de datos
+        * @includeIf solo si existe la vista la mostrará
 --}}

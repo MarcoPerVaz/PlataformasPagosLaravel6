@@ -4,22 +4,19 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Mostrando las plataformas de pago disponibles con Laravel y Bootstrap</strong></h2>
+  <h2>Commit - <strong>Permitiendo personalizar el formulario para cada plataforma de pago</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-   <li>
-    Edición del controlador <code>app\Http\Controllers\HomeController.php</code>
-    <ul>
-      <li>
-        Edición de la función <code>index()</code>
-        <br>
-        <em>*No olvidar importar el modelo <code>use App\PaymentPlatform;</code></em>
-      </li>
-    </ul>
-   </li>
-   <li>Edición de la vista <code>resources\views\home.blade.php</code></li>
+    <li>Edición de la vista <code>resources\views\home.blade.php</code></li>
+    <li>
+      Creación de la carpeta <code>resources\views\components</code>
+      <ul>
+        <li>Creación y edición de la vista <code>resources\views\components\paypal-collapse.blade.php</code></li>
+        <li>Creación y edición de la vista <code>resources\views\components\stripe-collapse.blade.php</code></li>
+      </ul>
+    </li>
   </ol>
   <!-- End Commit instructions -->
   
