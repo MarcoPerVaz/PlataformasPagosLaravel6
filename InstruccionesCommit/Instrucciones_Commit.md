@@ -4,12 +4,22 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Creando un formulario de montos aleatorios con Bootstrap en Laravel</strong></h2>
+  <h2>Commit - <strong>Mostrando los tipos de moneda disponibles para procesar un pago</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-   <li>Edición de la vista <code>resources\views\layouts\app.blade.php</code></li>
+   <li>
+    Edición del controlador <code>app\Http\Controllers\HomeController.php</code>
+    <ul>
+      <li>
+        Edición de la función <code>index()</code>
+        <br>
+        <em>*No olvidar importar el modelo <code>use App\Currency;</code></em>
+      </li>
+    </ul>
+   </li>
+   <li>Edición de la vista <code>resources\views\home.blade.php</code></li>
   </ol>
   <!-- End Commit instructions -->
   
