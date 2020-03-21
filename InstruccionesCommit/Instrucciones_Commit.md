@@ -4,7 +4,7 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Agregando componentes para mostrar mensajes de la plataforma de pagos</strong></h2>
+  <h2>Commit - <strong>Creando un formulario de montos aleatorios con Bootstrap en Laravel</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
@@ -17,7 +17,7 @@
   <h3>Notas:</h3>
 
   <ul>
-
+    <li>*Más información en <code>resources\views\home.blade.php</code></li>
   </ul>
     
   <em>
