@@ -4,17 +4,12 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Mejorando y usando los componentes generados con Laravel/ui</strong></h2>
+  <h2>Commit - <strong>Agregando componentes para mostrar mensajes de la plataforma de pagos</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-   <li>
-     Copiar CDN de Bootstrap 4.3
-     <pre>https://getbootstrap.com/docs/4.3/getting-started/download/#bootstrapcdn</pre>
-   </li>
    <li>Edición de la vista <code>resources\views\layouts\app.blade.php</code></li>
-   <li>Edición de la vista <code>resources\views\welcome.blade.php</code></li>
   </ol>
   <!-- End Commit instructions -->
   
@@ -29,5 +24,9 @@
     *Todo lo que está entre comentarios
     &lt;!-- --&gt; (aquí) &lt;!-- --&gt;
     será el código nuevo para el proyecto
+  </em>
+  <br>
+  <em>
+    *Las vistas de blade tendrán comentarios para especificar su funcionalidad o propósito
   </em>
   <!-- End notes -->

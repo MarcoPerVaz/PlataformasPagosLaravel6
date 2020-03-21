@@ -77,6 +77,34 @@
         </nav>
 
         <main class="py-4">
+            {{-- show errors messages --}}
+            <div class="container">
+                @if (isset($errors) && $errors->any()) {{-- Propio de php y laravel que muestra errores del formulario--}}
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
+            {{-- end show errors messages --}}
+
+            {{-- show success messages --}}
+            <div class="container">
+                @if (session()->has('success')) {{-- Sesión creada desde el controlador para mostrar mensajes de éxito --}}
+                    <div class="alert alert-success">
+                        <ul>
+                            @foreach (session()->get('success') as $message)
+                                <li>{{ $message }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
+            {{-- end show success messages --}}
+
             @yield('content')
         </main>
     </div>
