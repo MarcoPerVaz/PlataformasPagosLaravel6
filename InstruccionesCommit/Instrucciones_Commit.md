@@ -4,19 +4,22 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Permitiendo personalizar el formulario para cada plataforma de pago</strong></h2>
+  <h2>Commit - <strong>Agregando las acciones para procesar un pago en la plataforma con Laravel</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-    <li>Edición de la vista <code>resources\views\home.blade.php</code></li>
     <li>
-      Creación de la carpeta <code>resources\views\components</code>
+      Creación y edición del controlador <code>app\Http\Controllers\PaymentController.php</code>
+      <pre>php artisan make:controller PaymentController</pre>
       <ul>
-        <li>Creación y edición de la vista <code>resources\views\components\paypal-collapse.blade.php</code></li>
-        <li>Creación y edición de la vista <code>resources\views\components\stripe-collapse.blade.php</code></li>
+        <li>Creación y edición de la función <code>pay()</code></li>
+        <li>Creación de la función <code>approval()</code></li>
+        <li>Creación de la función <code>cancelled()</code></li>
       </ul>
     </li>
+    <li>Edición del archivo de rutas <code>routes/web.php</code></li>
+    <li>Edición de la vista <code>resources\views\home.blade.php</code></li>
   </ol>
   <!-- End Commit instructions -->
   

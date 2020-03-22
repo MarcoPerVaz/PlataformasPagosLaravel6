@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                   {{-- formulario con POST --}}
-                  <form action="#" method="POST" id="paymentForm">
+                  <form action="{{ route('pay') }}" method="POST" id="paymentForm">
                     @csrf {{-- token csrf --}}
 
                     <div class="row">
