@@ -4,43 +4,29 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Capturando un pago de una orden dada  en laravel con la API de PayPal</strong></h2>
+  <h2>Commit - <strong>Controlando desde Laravel la creación de una orden usando PayPal</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-   <li>
-     Abrir Tinker
-     <pre>php artisan tinker</pre>
-     <ul>
-       <li><code>$paypal = new App\Services\PayPalService;</code></li>
-       <li>code $paypal->createOrder(100.5, 'usd');</li>
-       <li>
-         Salir de tinker <code>exit</code>
-       </li>
-     </ul>
-   </li>
-   <li>
-     Edición del archivo <code>app\Services\PayPalService.php</code>
-     <ul>
-       <li>Creación y edición de la función <code>capturePayment($approvalId)</code></li>
-     </ul>
-   </li>
-  <li>
-    Abrir Tinker
-    <pre>php artisan tinker</pre>
-    <ul>
-      <li><code>$paypal = new App\Services\PayPalService;</code></li>
+    <li>
+      Edición del controlador <code>app\Http\Controllers\PaymentController.php</code>
       <li>
-        code $paypal->capturePayment(idOrder);
+        Edición de la función <code>pay(Request $request)</code>
         <br>
-        Ejemplo: <code>$paypal->capturePayment('4UA1730624007441J');</code>
+        <em>*No olvidar importar la clase <code>use App\Services\PayPalService;</code></em>
       </li>
-      <li>
-        Salir de tinker <code>exit</code>
-      </li>
-    </ul>
-  </li>
+    </li>
+    <li>
+      Edición del archivo <code>app\Services\PayPalService.php</code>
+      <ul>
+        <li>
+          Creación y edición de la función <code>handlePayment(Request $request)</code>
+          <br>
+          <em>*No olvidar importar la clase <code>use Illuminate\Http\Request;</code></em>
+        </li>
+      </ul>
+    </li>
   </ol>
   <!-- End Commit instructions -->
   
@@ -48,9 +34,7 @@
   <h3>Notas:</h3>
 
   <ul>
-    <li>
-      Documentación oficial de <a href="https://developer.paypal.com/docs/api/overview/">Paypal API</a>
-    </li>
+
   </ul>
     
   <em>
