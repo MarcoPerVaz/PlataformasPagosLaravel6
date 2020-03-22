@@ -4,42 +4,40 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Configurando la plataforma de pagos en Laravel para usar la API de Paypal</strong></h2>
+  <h2>Commit - <strong>Agregando un servicio en Laravel encargado de consumir la API de PayPal</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-    <li>
-      Edición del archivo <code>config\services.php</code>
-      <br>
-      <code>'paypal' => [</code>
-      <br>
-      <code>'base_uri' => env('PAYPAL_BASE_URI'),</code>
-      <br>
-      <code>'client_uri' => env('PAYPAL_CLIENT_ID'),</code>
-      <br>
-      <code>'client_secret' => env('PAYPAL_CLIENT_SECRET'),</code>
-      <br>
-      <code>],</code>
-    </li>
-    <li>
-      Edición del archivo <code>.env</code>
-      <br>
-      <code>PAYPAL_BASE_URI=https://api.sandbox.paypal.com</code>
-      <br>
-      <code>PAYPAL_CLIENT_ID=</code> Pegar el Client Id desde la página de Paypal
-      <br>
-      <code>PAYPAL_CLIENT_SECRET=</code> Pegar el Client Id desde la página de Paypal
-    </li>
-    <li>
-      Edición del archivo <code>.env.example</code>
-      <br>
-      <code>PAYPAL_BASE_URI=https://api.sandbox.paypal.com</code>
-      <br>
-      <code>PAYPAL_CLIENT_ID=</code> Es información sensible y no se puede mostrar
-      <br>
-      <code>PAYPAL_CLIENT_SECRET=</code> Es información sensible y no se puede mostrar
-    </li>
+   <li>
+     Creación de la carpeta <code>app\Services</code>
+     <ul>
+       <li>
+         Creación y edición del archivo <code>app\Services\PayPalService.php</code>
+         <ul>
+           <li>
+             Creación de la clase <code>class PayPalService</code>
+              <ul>
+                <em>*No olvidar importar el trait <code>use ConsumesExternalServices;</code></em>
+                <br>
+                <em>*No olvidar importar la clase <code>use App\Traits\ConsumesExternalServices;</code></em>
+                <br>
+                <em>*No olvidar crear las variables protegidas</em>
+                <br>
+                <code>protected $baseUri;</code>
+                <br>
+                <code>protected $clientId;</code>
+                <br>
+                <code>protected $clientSecret;</code>
+              </ul>
+            </li>
+         </ul>
+        </li>
+        <li>Creación de la función <code>resolveAuthorization(&$queryParams, &$formParams, &$headers)</code></li>
+        <li>Creación de la función <code>public function decodeResponse($response)</code></li>
+        <li>Creación y edición de la función constructor <code>__construct()</code></li>
+     </ul>
+   </li>
   </ol>
   <!-- End Commit instructions -->
   
@@ -47,15 +45,7 @@
   <h3>Notas:</h3>
 
   <ul>
-    <li>
-      *Más información en <code>app\Traits\ConsumesExternalServices.php</code>
-        <br>
-        *El archivo contiene mucha información sobre el uso del Trait ConsumesExternalServices
-    </li>
-    <li>
-      *En la función makeRequest() agregar 'verify' => false, pero solo en modo de desarrollo, modo de producción poner true
-       o quitar la línea 
-    </li>
+    
   </ul>
     
   <em>
