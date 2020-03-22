@@ -4,14 +4,27 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Agregando GuzzleHTTP a Laravel para consumir APIs HTTP</strong></h2>
+  <h2>Commit - <strong>Creando un componente para usar cualquier API de las plataformas de pagos</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
     <li>
-      Instalar la dependencia GuzzleHTTP
-      <pre>composer require guzzlehttp/guzzle:~6.0</pre>
+      Creación de la carpeta <code>app\Traits</code>
+      <ul>
+        <li>
+          Creación y edición del archivo <code>app\Traits\ConsumesExternalServices.php</code>
+          <ul>
+            <li>Creación y edición de la función 
+              <code>
+                makeRequest($method, $requestUrl, $queryParams = [], $formParams = [], $headers = [], $isJsonRequest = false)
+              </code>
+              <br>
+              <em>*No olvidar importar la clase <code>use GuzzleHttp\Client;</code></em>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </li>
   </ol>
   <!-- End Commit instructions -->
@@ -21,8 +34,13 @@
 
   <ul>
     <li>
-      Documentación oficial de GuzzleHTTP
-      <pre>http://docs.guzzlephp.org/en/stable/index.html</pre>
+      *Más información en <code>app\Traits\ConsumesExternalServices.php</code>
+        <br>
+        *El archivo contiene mucha información sobre el uso del Trait ConsumesExternalServices
+    </li>
+    <li>
+      *En la función makeRequest() agregar 'verify' => false, pero solo en modo de desarrollo, modo de producción poner true
+       o quitar la línea 
     </li>
   </ul>
     
