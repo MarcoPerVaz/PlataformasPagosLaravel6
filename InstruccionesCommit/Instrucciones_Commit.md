@@ -4,72 +4,25 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Creando cuentas de prueba en Paypal para enviar y recibir pagos</strong></h2>
+  <h2>Commit - <strong>Creando una aplicación de PayPal para consumir su API desde Laravel</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-   <li>
-     ir al sitio <a href="https://developer.paypal.com/classic-home/">PayPal Developer</a>
-    </li>
-   <li>
-     Inicia sesión o crear cuenta
-    <br>
-    <em>*Solo cuentas de negocio podrán recibir pagos pero la cuenta personal permite hacer pruebas</em>
-   </li>
-   <li>
-     ir a <a href="https://developer.paypal.com/developer/applications/">Dashboard</a>
-     ó click izquierdo en tu cuenta y click en dashboard
-    </li>
-    <li>Click en la sección SANDBOX/Accounts</li>
-    <li>Click en Create Account</li>
-    <li>Seleccionar Personal (Buyer Account)</li>
     <li>
-      Seleccionar Country /Region
-      <br>
-      United States of America
-    </li>
-    <li>Click en Create</li>
-    <li>Borrar las Sandbox Accounts que permita eliminar para crear las personalizadas</li>
-    <li>
-      Click en Create Account
+      Desde el dashboard de <a href="https://developer.paypal.com">Developer PayPal</a>
       <ul>
-        <li>Click en Create Custom Account</li>
-        <li>Seleccionar Country /Region <code>United States of America</code></li>
-        <li>Seleccionar en Account Type <code>Personal (Buyer Account)</code></li>
-        <li>Asignar Email Address: <code>marcooPersonal@mail.com</code></li>
-        <li>Asignar Password: <code>12345678</code></li>
-        <li>Asignar First Name(opcional) <code>marcoo</code></li>
-        <li>Asignar Last Name(opcional) <code>Admin</code></li>
-        <li>Asignar PayPal Balance <code>15000</code></li>
-        <li>Seleccionar en bank Verified Account <code>Yes</code></li>
-        <li>Seleccionar en Select Payment Card <code>Paypal</code></li>
-        <li>Seleccionar Credt cards <code>Mastercard o la que sea</code></li>
-        <li>Click en Create Account</li>
-      </ul>
-    </li>
-    <li>
-      Click en Create Account
-      <ul>
-        <li>Click en Create Custom Account</li>
-        <li>Seleccionar Country /Region <code>United States of America</code></li>
-        <li>Seleccionar en Account Type <code>Business (Merchant Account)</code></li>
-        <li>Asignar Email Address: <code>marcooBusiness@mail.com</code></li>
-        <li>Asignar Password: <code>12345678</code></li>
-        <li>Asignar First Name(opcional) <code>marcoo</code></li>
-        <li>Asignar Last Name(opcional) <code>Business</code></li>
-        <li>Asignar PayPal Balance <code>0</code></li>
-        <li>Seleccionar en bank Verified Account <code>Yes</code></li>
-        <li>Seleccionar Credt cards <code>Mastercard o la que sea</code></li>
-        <li>Click en Create Account</li>
-      </ul>
-    </li>
-    <li>También se pueden usar las cuentas Personal y Business creadas por default</li>
-    <li>
-      Ir a <a href="https://www.sandbox.paypal.com/">Sandbox</a>
-      <ul>
+        <li>Iniciar sesión</li>
+        <li>Ir a la sección de <code>My Apps & Credentials</code></li>
         <li>
-          Inicia sesión con las cuentas falsas de Paypal si se quiere ver la información de la cuenta
+          Click en <code>Create App</code>
+          <ul>
+            <li>Asignar App Name <code></code></li>
+            <li>Seleccionar en Sandbox Business Account <code>La cuenta business</code></li>
+            <li>Click en <code>Create App</code></li>
+            <br>
+            <em>*Con esto ya se obtienen las credenciales de la API de PayPal</em>
+          </ul>
         </li>
       </ul>
     </li>
