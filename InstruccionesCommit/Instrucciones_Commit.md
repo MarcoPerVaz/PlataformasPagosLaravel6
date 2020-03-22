@@ -4,27 +4,41 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Creando una aplicación de PayPal para consumir su API desde Laravel</strong></h2>
+  <h2>Commit - <strong>Configurando la plataforma de pagos en Laravel para usar la API de Paypal</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
     <li>
-      Desde el dashboard de <a href="https://developer.paypal.com">Developer PayPal</a>
-      <ul>
-        <li>Iniciar sesión</li>
-        <li>Ir a la sección de <code>My Apps & Credentials</code></li>
-        <li>
-          Click en <code>Create App</code>
-          <ul>
-            <li>Asignar App Name <code></code></li>
-            <li>Seleccionar en Sandbox Business Account <code>La cuenta business</code></li>
-            <li>Click en <code>Create App</code></li>
-            <br>
-            <em>*Con esto ya se obtienen las credenciales de la API de PayPal</em>
-          </ul>
-        </li>
-      </ul>
+      Edición del archivo <code>config\services.php</code>
+      <br>
+      <code>'paypal' => [</code>
+      <br>
+      <code>'base_uri' => env('PAYPAL_BASE_URI'),</code>
+      <br>
+      <code>'client_uri' => env('PAYPAL_CLIENT_ID'),</code>
+      <br>
+      <code>'client_secret' => env('PAYPAL_CLIENT_SECRET'),</code>
+      <br>
+      <code>],</code>
+    </li>
+    <li>
+      Edición del archivo <code>.env</code>
+      <br>
+      <code>PAYPAL_BASE_URI=https://api.sandbox.paypal.com</code>
+      <br>
+      <code>PAYPAL_CLIENT_ID=</code> Pegar el Client Id desde la página de Paypal
+      <br>
+      <code>PAYPAL_CLIENT_SECRET=</code> Pegar el Client Id desde la página de Paypal
+    </li>
+    <li>
+      Edición del archivo <code>.env.example</code>
+      <br>
+      <code>PAYPAL_BASE_URI=https://api.sandbox.paypal.com</code>
+      <br>
+      <code>PAYPAL_CLIENT_ID=</code> Es información sensible y no se puede mostrar
+      <br>
+      <code>PAYPAL_CLIENT_SECRET=</code> Es información sensible y no se puede mostrar
     </li>
   </ol>
   <!-- End Commit instructions -->
