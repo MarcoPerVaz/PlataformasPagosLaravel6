@@ -38,6 +38,41 @@ class PayPalService
 
     return "Basic {$credentials}";
   }
+
+  public function createOrder($value, $currency)
+  {
+    return $this->makeRequest(
+      'POST',                 /* $method */
+      '/v2/checkout/orders', /* $requestUrl */
+      [],                     /* $queryParams */
+      [  /* $formParams */
+        'intent' => 'CAPTURE',
+        'purchase_units' => [
+          0 => [
+            'amount' => [
+              'currency_code' => strtoupper($currency),
+              'value' => $value,
+            ]
+          ]
+        ],
+        'application_context' => [
+          'brand_name' => config('app.name'),
+          'shipping_preference' => 'NO_SHIPPING',
+          'user_action' => 'PAY_NOW',
+          'return_url' => route('approval'),
+          'cancel_url' => route('cancelled'),
+        ]
+      ],                    
+      [],                     /* $headers */
+      $isJsonRequest = true,  /* $isJsonRequest */
+    );
+  }
   
 }
 /*  */
+
+/* Notes:
+    *En createOrder($value, $currency)
+      *$value es la cantidad 
+      *$currency es la moneda 
+*/
