@@ -67,6 +67,19 @@ class PayPalService
       $isJsonRequest = true,  /* $isJsonRequest */
     );
   }
+
+  public function capturePayment($approvalId)
+  {
+    return $this->makeRequest(
+      'POST', /* $method */
+      "/v2/checkout/orders/{$approvalId}/capture", /* $requestUrl */
+      [], /* $queryParams */
+      [], /* $formParams */
+      [ /* $headers */
+        'Content-Type' => 'application/json'
+      ]
+    );
+  }
   
 }
 /*  */
@@ -75,4 +88,11 @@ class PayPalService
     *En createOrder($value, $currency)
       *$value es la cantidad 
       *$currency es la moneda 
+    *En capturePayment($approvalId)
+      *$approvalId es el id de la orden de pago
+    *En esta parte hay un error que en el curso no se muestra (en laragon hay error pero usando php artisan serve no)
+      *Al cerrar la llave ] en el curso lleva una coma (],), pero yo se la tuve que quitar porque no me funcionaba
+       [  
+          'Content-Type' => 'application/json'
+       ]
 */
