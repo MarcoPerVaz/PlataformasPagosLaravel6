@@ -4,30 +4,41 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Configurando la plataforma de pagos con Laravel para usar Stripe</strong></h2>
+  <h2>Commit - <strong>Creando el servicio para Laravel que usará la API de Stripe</strong></h2>
  
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-    <li>Edición del archivo <code>config\services.php</code></li>
     <li>
-      Edición del archivo .env
+      Creación y edición del archivo <code>app\Services\StripeService.php</code>
       <br>
-      <code>STRIPE_BASE_URI=https://api.stripe.com</code>
-      <br>
-      <code>STRIPE_KEY=ClavePublica</code>
-      <br>
-      <code>STRIPE_SECRET=ClaveSecreta</code>
-    </li>
-    <li>
-      Edición del archivo <code>.env.example</code> para tener consistencia
-      <br>
-      <code>STRIPE_BASE_URI=https://api.stripe.com</code>
-      <br>
-      <code>STRIPE_KEY=</code>
-      <br>
-      <code>STRIPE_SECRET=</code>
+      <em>*No olvidar importar <code>use App\Traits\ConsumesExternalServices;</code></em>
+      <ul>
+        <li>
+          Creación y edición de la función constructor <code>__construct()</code>
+          <br>
+          <em>*No olvidar colocar <code>use ConsumesExternalServices;</code></em>
+          <br>
+          <em>*No olvidar crear las propiedades</em>
+          <br>
+          <em><code>protected $key;</code></em>
+          <br>
+          <em><code>protected $secret;</code></em>
+          <br>
+          <em><code>protected $baseUri;</code></em>
+        </li>
+        <li>
+          Creación de la función <code>resolveAuthorization(&$queryParams, &$formParams, &$headers)</code>
+        </li>
+        <li>
+          Creación y edición de la función <code>decodeResponse($response)</code>
+        </li>
+        <li>Creación de la función <code>resolveAccessToken()</code></li>
+        <li>Creación de la función <code>handlePayment(Request $request)</code></li>
+        <li>Creación de la función <code>handleApproval()</code></li>
+        <li>Creación y edición de la función <code>resolveFactor($currency)</code></li>
+      </ul>
     </li>
   </ol>
   <!-- End Commit instructions -->
@@ -35,7 +46,7 @@
   <!-- Notes -->
   <h3>Notas:</h3>
   <ul>
-    <li>Documentación de la API de <a href="https://stripe.com/docs/api">Stripe</a></li>
+    
   </ul>
     
   <em>
