@@ -4,17 +4,23 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Implementando el flujo de cancelación de un pago para cualquier plataforma</strong></h2>
+  <h2>Commit - <strong>Considerando monedas sin decimales</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
     <li>
-      Edición del controlador <code>app\Http\Controllers\PaymentController.php</code>
+      Edición del archivo <code>database\seeds\CurrenciesTableSeeder.php</code>
+    </li>
+    <li>
+      Reejecutar las migraciones
+      <pre>php artisan migrate:fresh --seed</pre>
+    </li>
+    <li>
+      Edición del archivo <code>app\Services\PayPalService.php</code>
       <ul>
-        <li>
-          Edición de la función <code>cancelled()</code>
-        </li>
+        <li>Edición de la función <code>createOrder($value, $currency)</code></li>
+        <li>Creación y edición de la función <code>resolveFactor($currency)</code></li>
       </ul>
     </li>
   </ol>
