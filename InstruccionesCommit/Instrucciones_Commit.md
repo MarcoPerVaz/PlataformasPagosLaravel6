@@ -4,27 +4,16 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Controlando desde Laravel la captura de un pago con PayPal</strong></h2>
+  <h2>Commit - <strong>Implementando el flujo de cancelación de un pago para cualquier plataforma</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
     <li>
       Edición del controlador <code>app\Http\Controllers\PaymentController.php</code>
-     <ul>
-        <li>
-          Edición de la función <code>approval()</code>
-        </li>
-     </ul>
-    </li>
-    <li>
-      Edición del archivo <code>app\Services\PayPalService.php</code>
       <ul>
         <li>
-          Edición de la función <code>handlePayment(Request $request)</code>
-        </li>
-        <li>
-          Creación y edición de la función <code>handleApproval()</code>
+          Edición de la función <code>cancelled()</code>
         </li>
       </ul>
     </li>
