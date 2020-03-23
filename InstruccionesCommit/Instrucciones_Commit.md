@@ -4,25 +4,29 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Resolviendo el servicio de la plataforma de pago según elección del usuario</strong></h2>
+  <h2>Commit - <strong>Creando una cuenta en Stripe para usarlo con la plataforma de pagos</strong></h2>
+  <h2>Commit - <strong>Obteniendo credenciales de acceso para usar la API de Stripe desde Laravel</strong></h2>
+ 
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
+  <h2>Commit - Creando una cuenta en Stripe para usarlo con la plataforma de pagos</h2>
   <ol>
    <li>
-     Edición del controlador <code>app\Http\Controllers\PaymentController.php</code>
-     <ul>
-       <li>
-         Creación y edición de la función constructor <code>__construct(PaymentPlatformResolver $paymentPlatformResolver)</code>
-         <br>
-         <em>*No olvidar importar <code>use App\Resolvers\PaymentPlatformResolver;</code></em>
-         <br>
-         <em>*No olvidar crear la propiedad <code>protected $paymentPlatformResolver;</code></em>
-        </li>
-        <li>Edición de la función <code>pay(Request $request)</code></li>
-        <li>Edición de la función <code>approval()</code></li>
-     </ul>
+     Ir a <a href="https://stripe.com/es-mx">Stripe México</a>
    </li>
+   <li>Iniciar sesión o crearse una cuenta</li>
+  </ol>
+  <h2>Commit - Obteniendo credenciales de acceso para usar la API de Stripe desde Laravel</h2>
+  <ol>
+    <li>
+      Click en la sección <code>Desarroladores/Claves de API</code>
+      <br>
+      <em>
+        *Ahí se encuentran la <code>Clave publicable</code> y la <code>Clave secreta</code> que se usan en 
+         laravel para conectar con la API
+      </em>
+    </li>
   </ol>
   <!-- End Commit instructions -->
   
@@ -30,7 +34,7 @@
   <h3>Notas:</h3>
 
   <ul>
-
+    <li>Documentación oficial de <a href="https://stripe.com/docs">Stripe para desarrolladores</a></li>
   </ul>
     
   <em>
