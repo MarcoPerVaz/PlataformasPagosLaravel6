@@ -48,7 +48,31 @@ class PayPalService
 
     $approve = $orderLinks->where('rel', 'approve')->first();
 
+    session()->put('approvalId', $order->id);
+
     return redirect($approve->href);
+  }
+
+  public function handleApproval()
+  {
+    if (session()->has('approvalId')) {
+      $approvalId = session()->get('approvalId');
+
+      $payment = $this->capturePayment($approvalId);
+
+      // dd($payment); /* Devolver los campos que podríamos mostrar */
+
+      $name = $payment->payer->name->given_name; /* Nombre del comprador */
+      $payment = $payment->purchase_units[0]->payments->captures[0]->amount; /* Cantidad */
+      $amount = $payment->value; /* cantidad */
+      $currency = $payment->currency_code; /* Moneda */
+
+      return redirect()->route('home')
+        ->withSuccess(['payment' => "Thanks, {$name}. We received your {$amount}{$currency} payment."]);
+    }
+
+    return redirect()->route('home')
+        ->withErrors('We cannot capture your payment. Try again, please');
   }
 
   public function createOrder($value, $currency)

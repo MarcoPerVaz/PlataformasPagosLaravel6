@@ -4,26 +4,27 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Controlando desde Laravel la creación de una orden usando PayPal</strong></h2>
+  <h2>Commit - <strong>Controlando desde Laravel la captura de un pago con PayPal</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
     <li>
       Edición del controlador <code>app\Http\Controllers\PaymentController.php</code>
-      <li>
-        Edición de la función <code>pay(Request $request)</code>
-        <br>
-        <em>*No olvidar importar la clase <code>use App\Services\PayPalService;</code></em>
-      </li>
+     <ul>
+        <li>
+          Edición de la función <code>approval()</code>
+        </li>
+     </ul>
     </li>
     <li>
       Edición del archivo <code>app\Services\PayPalService.php</code>
       <ul>
         <li>
-          Creación y edición de la función <code>handlePayment(Request $request)</code>
-          <br>
-          <em>*No olvidar importar la clase <code>use Illuminate\Http\Request;</code></em>
+          Edición de la función <code>handlePayment(Request $request)</code>
+        </li>
+        <li>
+          Creación y edición de la función <code>handleApproval()</code>
         </li>
       </ul>
     </li>
