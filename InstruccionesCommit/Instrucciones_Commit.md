@@ -4,40 +4,26 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Creando el servicio para Laravel que usará la API de Stripe</strong></h2>
+  <h2>Commit - <strong>Decodificando y autenticando las peticiones a la API de Stripe</strong></h2>
  
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
     <li>
-      Creación y edición del archivo <code>app\Services\StripeService.php</code>
-      <br>
-      <em>*No olvidar importar <code>use App\Traits\ConsumesExternalServices;</code></em>
+      Edición del archivo <code>app\Services\StripeService.php</code>
       <ul>
+        <li>Edición de la función <code>resolveAuthorization(&$queryParams, &$formParams, &$headers)</code></li>
+        <li>Edición de la función <code></code></li>
         <li>
-          Creación y edición de la función constructor <code>__construct()</code>
-          <br>
-          <em>*No olvidar colocar <code>use ConsumesExternalServices;</code></em>
-          <br>
-          <em>*No olvidar crear las propiedades</em>
-          <br>
-          <em><code>protected $key;</code></em>
-          <br>
-          <em><code>protected $secret;</code></em>
-          <br>
-          <em><code>protected $baseUri;</code></em>
+          Abrir Tinker (para hacer la prueba de conexión del servicio)
+          <pre>php artisan tinker</pre>
+          <ul>
+            <li><code>$stripe = new App\Services\StripeService;</code></li>
+            <li><code>$stripe->makeRequest('GET', '/v1/balance');</code></li>
+            <li>Salir de Tinker <code>exit</code></li>
+          </ul>
         </li>
-        <li>
-          Creación de la función <code>resolveAuthorization(&$queryParams, &$formParams, &$headers)</code>
-        </li>
-        <li>
-          Creación y edición de la función <code>decodeResponse($response)</code>
-        </li>
-        <li>Creación de la función <code>resolveAccessToken()</code></li>
-        <li>Creación de la función <code>handlePayment(Request $request)</code></li>
-        <li>Creación de la función <code>handleApproval()</code></li>
-        <li>Creación y edición de la función <code>resolveFactor($currency)</code></li>
       </ul>
     </li>
   </ol>
