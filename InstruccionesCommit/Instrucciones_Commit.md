@@ -4,25 +4,46 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Considerando monedas sin decimales</strong></h2>
+  <h2>Commit - <strong>Creando un componente que resuelva una plataforma de pago dinámicamente</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-    <li>
-      Edición del archivo <code>database\seeds\CurrenciesTableSeeder.php</code>
-    </li>
-    <li>
-      Reejecutar las migraciones
-      <pre>php artisan migrate:fresh --seed</pre>
-    </li>
-    <li>
-      Edición del archivo <code>app\Services\PayPalService.php</code>
-      <ul>
-        <li>Edición de la función <code>createOrder($value, $currency)</code></li>
-        <li>Creación y edición de la función <code>resolveFactor($currency)</code></li>
-      </ul>
-    </li>
+   <li>
+     Creación de la carpeta <code>app\Resolvers</code>
+     <ul>
+       <li>
+         Creación y edición del archivo <code>app\Resolvers\PaymentPlatformResolver.php</code>
+         <ul>
+           <li>
+             Creación y edición de la función constructor <code>__construct()</code>
+             <br>
+             <em>*No olvidar importar el modelo <code>use App\PaymentPlatform;</code></em>
+           </li>
+           <li>
+             Creación y edición de la función <code>resolveService($paymentPlatformId)</code>
+             <br>
+             <em>*No olvidar importar la definición <code>use Exception;</code></em>
+           </li>
+         </ul>
+        </li>
+     </ul>
+   </li>
+   <li>Edición del archivo <code>config\services.php</code></li>
+   <li>
+     Abrir Tinker
+     <pre>php artisan tinker</pre>
+       <ul>
+        <li><code>$resolver = new App\Resolvers\PaymentPlatformResolver;</code></li>
+        <li>
+          <code>$resolver->resolveService(numServicio)</code>
+          <br>
+          Ejemplo: <code>$resolver->resolveService(1)</code> <!-- 1= PayPal -->
+        </li>
+        <li>Salir de tinker <code>exit</code></li>
+       </ul>
+     </ul>
+   </li>
   </ol>
   <!-- End Commit instructions -->
   
