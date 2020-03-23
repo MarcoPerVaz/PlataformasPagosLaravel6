@@ -4,37 +4,38 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Creando una cuenta en Stripe para usarlo con la plataforma de pagos</strong></h2>
-  <h2>Commit - <strong>Obteniendo credenciales de acceso para usar la API de Stripe desde Laravel</strong></h2>
+  <h2>Commit - <strong>Configurando la plataforma de pagos con Laravel para usar Stripe</strong></h2>
  
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
-  <h2>Commit - Creando una cuenta en Stripe para usarlo con la plataforma de pagos</h2>
   <ol>
-   <li>
-     Ir a <a href="https://stripe.com/es-mx">Stripe México</a>
-   </li>
-   <li>Iniciar sesión o crearse una cuenta</li>
-  </ol>
-  <h2>Commit - Obteniendo credenciales de acceso para usar la API de Stripe desde Laravel</h2>
-  <ol>
+    <li>Edición del archivo <code>config\services.php</code></li>
     <li>
-      Click en la sección <code>Desarroladores/Claves de API</code>
+      Edición del archivo .env
       <br>
-      <em>
-        *Ahí se encuentran la <code>Clave publicable</code> y la <code>Clave secreta</code> que se usan en 
-         laravel para conectar con la API
-      </em>
+      <code>STRIPE_BASE_URI=https://api.stripe.com</code>
+      <br>
+      <code>STRIPE_KEY=ClavePublica</code>
+      <br>
+      <code>STRIPE_SECRET=ClaveSecreta</code>
+    </li>
+    <li>
+      Edición del archivo <code>.env.example</code> para tener consistencia
+      <br>
+      <code>STRIPE_BASE_URI=https://api.stripe.com</code>
+      <br>
+      <code>STRIPE_KEY=</code>
+      <br>
+      <code>STRIPE_SECRET=</code>
     </li>
   </ol>
   <!-- End Commit instructions -->
   
   <!-- Notes -->
   <h3>Notas:</h3>
-
   <ul>
-    <li>Documentación oficial de <a href="https://stripe.com/docs">Stripe para desarrolladores</a></li>
+    <li>Documentación de la API de <a href="https://stripe.com/docs/api">Stripe</a></li>
   </ul>
     
   <em>
