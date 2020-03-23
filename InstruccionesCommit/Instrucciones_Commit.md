@@ -4,44 +4,23 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Creando un componente que resuelva una plataforma de pago dinámicamente</strong></h2>
+  <h2>Commit - <strong>Resolviendo el servicio de la plataforma de pago según elección del usuario</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
    <li>
-     Creación de la carpeta <code>app\Resolvers</code>
+     Edición del controlador <code>app\Http\Controllers\PaymentController.php</code>
      <ul>
        <li>
-         Creación y edición del archivo <code>app\Resolvers\PaymentPlatformResolver.php</code>
-         <ul>
-           <li>
-             Creación y edición de la función constructor <code>__construct()</code>
-             <br>
-             <em>*No olvidar importar el modelo <code>use App\PaymentPlatform;</code></em>
-           </li>
-           <li>
-             Creación y edición de la función <code>resolveService($paymentPlatformId)</code>
-             <br>
-             <em>*No olvidar importar la definición <code>use Exception;</code></em>
-           </li>
-         </ul>
+         Creación y edición de la función constructor <code>__construct(PaymentPlatformResolver $paymentPlatformResolver)</code>
+         <br>
+         <em>*No olvidar importar <code>use App\Resolvers\PaymentPlatformResolver;</code></em>
+         <br>
+         <em>*No olvidar crear la propiedad <code>protected $paymentPlatformResolver;</code></em>
         </li>
-     </ul>
-   </li>
-   <li>Edición del archivo <code>config\services.php</code></li>
-   <li>
-     Abrir Tinker
-     <pre>php artisan tinker</pre>
-       <ul>
-        <li><code>$resolver = new App\Resolvers\PaymentPlatformResolver;</code></li>
-        <li>
-          <code>$resolver->resolveService(numServicio)</code>
-          <br>
-          Ejemplo: <code>$resolver->resolveService(1)</code> <!-- 1= PayPal -->
-        </li>
-        <li>Salir de tinker <code>exit</code></li>
-       </ul>
+        <li>Edición de la función <code>pay(Request $request)</code></li>
+        <li>Edición de la función <code>approval()</code></li>
      </ul>
    </li>
   </ol>
