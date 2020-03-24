@@ -63,6 +63,14 @@ class StripeService
     );
   }
 
+  public function confirmPayment($paymentIntentId)
+  {
+    return $this->makeRequest(
+      'POST', /* $method */
+      "/v1/payment_intents/{$paymentIntentId}/confirm" /* $requestUrl */
+    );
+  }
+
   public function resolveFactor($currency)
   {
     $zeroDecimalCurrencies = ['JPY'];

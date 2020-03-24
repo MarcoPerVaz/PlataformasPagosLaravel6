@@ -4,7 +4,7 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Creando una intención de pago con la API de Stripe desde Laravel</strong></h2>
+  <h2>Commit - <strong>Confirmando una intención de pago desde Laravel usando la API de Stripe</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
@@ -12,7 +12,7 @@
     <li>
       Edición del archivo <code>app\Services\StripeService.php</code>
       <ul>
-        <li>Creación y edición de la función <code>creanteIntent($value, $currency, $paymentMethod)</code></li>
+        <li>Creación y edición de la función <code>confirmPayment($paymentIntentId)</code></li>
       </ul>
     </li>
     <li>
@@ -21,14 +21,13 @@
       <ul>
         <li><code>$stripe = new App\Services\StripeService;</code></li>
         <li>
-          <code>$stripe->createIntent(501.52, 'usd', 'pm_1GQ1dHBz6ZR4h2Twj0hYMEDR');</code>
-          <br>
-          <em>
-            *<code>pm_1GQ1dHBz6ZR4h2Twj0hYMEDR</code> Se obtiene iniciando una compra desde la aplicación y en el 
-            método pay() del controlador <code>PaymentController devuelva un dd($request->all());</code>
-          </em>
+          <code>$stripe->createIntent(223.20, 'jpy', 'pm_1GQ2FYBz6ZR4h2TwOf9zt1VP'); </code> 
+          Se obtiene iniciando una compra desde la aplicación y en el
+          método pay() del controlador <code>PaymentController devuelva un dd($request->all());</code> 
+          se obtiene el paymentIntentId <code>pi_1GQ2ICBz6ZR4h2Twk2sviRxJ</code>
         </li>
-        <li>Salir de tinker <code>exit</code></li>
+        <li><code>$stripe->confirmPayment'(pi_1GQ2ICBz6ZR4h2Twk2sviRxJ');</code></li>
+        <li>Salir de Tinker <code>exit</code></li>
       </ul>
     </li>
   </ol>
