@@ -4,7 +4,7 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Manejando con Laravel el procesamiento de un pago con Stripe</strong></h2>
+  <h2>Commit - <strong>Manejando con Laravel la confirmación de un pago realizado Stripe</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
@@ -12,13 +12,7 @@
     <li>
       Edición del archivo <code>app\Services\StripeService.php</code>
       <ul>
-        <li>Edición de la función <code>handlePayment(Request $request)</code></li>
-      </ul>
-    </li>
-    <li>
-      Edición del controlador <code>app\Http\Controllers\PaymentController.php</code>
-      <ul>
-        <li>Edición de la función <code>pay(Request $request)</code></li>
+        <li>Edición de la función <code>handleApproval()</code></li>
       </ul>
     </li>
   </ol>
