@@ -4,15 +4,15 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Considerando Strong Customer Authentication(SCA) con Stripe</strong></h2>
+  <h2>Commit - <strong>Preparando el servicio de Stripe para procesar pagos con 3D Secure (SCA)</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
     <li>
-      Edición del archivo <code>app\Services\StripeService.php</code>
+      Creación de la carpeta <code>resources\views\stripe</code>
       <ul>
-        <li>Edición de la función <code>pay(Request $request)</code></li>
+        <li>Creación y edición de la vista <code><resources\views\stripe\3d-secure.blade.php/code></li>
       </ul>
     </li>
   </ol>
