@@ -58,6 +58,8 @@ class StripeService
 
       $confirmation = $this->confirmPayment($paymentIntentId);
 
+      dd($confirmation); /* Muestra toda la información de la variable $confirmation */
+
       if ($confirmation->status === 'succeeded') {
 
         $name = $confirmation->charges->data[0]->billing_details->name;
