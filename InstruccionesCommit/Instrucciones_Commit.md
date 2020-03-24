@@ -4,12 +4,31 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Eligiendo un servicio de conversión de monedas</strong></h2>
+  <h2>Commit - <strong>Configurando el servicio de conversión de monedas en Laravel</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-    
+    <li>
+      Edición del archivo <code>config\services.php</code>
+      <em>
+        *Por estándar ordenar los servicios por orden alfabético (En este caso solo se ordenó en base a los nuevos servicios)
+      </em>
+    </li>
+    <li>
+      Edición del archivo <code>.env</code>
+      <ul>
+        <li><code>CURRENCY_CONVERSION_BASE_URI=https://free.currconv.com</code></li>
+        <li><code>CURRENCY_CONVERSION_API_KEY=</code>llaveEnviadaAlCorreo</li>
+      </ul>
+    </li>
+    <li>
+      Edición del archivo <code>.env.example</code> para tener consistencia en caso de clonar el proyecto
+      <ul>
+        <li><code>CURRENCY_CONVERSION_BASE_URI=https://free.currconv.com</code></li>
+        <li><code>CURRENCY_CONVERSION_API_KEY=</code>llaveEnviadaAlCorreo</li>
+      </ul>
+    </li>
   </ol>
   <!-- End Commit instructions -->
   
@@ -19,7 +38,7 @@
     <li>
       API para conversión de monedas <a href="https://www.currencyconverterapi.com/">currencyconverterapi</a>
       <ul>
-        <li>Ir a <a href="https://free.currencyconverterapi.com/free-api-key">Para obtener la llave de la API</a></li>
+        <li>Ir a la <a href="https://www.currencyconverterapi.com/docs">Documentación oficial</a> </li>
         <li>
           Colocar un correo real para recibir la llave
           <br>
