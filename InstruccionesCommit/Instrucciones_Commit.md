@@ -4,39 +4,15 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Agregando un servicio en Laravel para convertir monedas</strong></h2>
+  <h2>Commit - <strong>Convirtiendo monedas con el servicio agregado a Laravel</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
    <li>
-     Creación y edición del archivo <code>app\Services\CurrencyConversionService.php</code>
-     <br>
-     <em>*No olvidar importar la clase <code>use Illuminate\Http\Request;</code></em>
-    <br>
-    <em>*No olvidar importar el servicio <code>use App\Traits\ConsumesExternalServices;</code></em>
+     Edición del archivo <code>app\Services\CurrencyConversionService.php</code>
      <ul>
-       <li>
-         Creación y edición de la función constructor <code>__construct()</code>
-         <br>
-         <em>*No olvidar usar el trait <code>use ConsumesExternalServices;</code></em>
-         <br>
-         <em>*No olvidar usar la propiedad <code>protected $baseUri;</code></em>
-         <br>
-         <em>*No olvidar usar la propiedad <code>protected $apiKey;</code></em>
-        </li>
-        <li>
-          Creación y edición de la función <code>resolveAuthorization(&$queryParams, &$formParams, &$headers)</code>
-        </li>
-        <li>
-          Creación y edición de la función <code>decodeResponse($response)</code>
-        </li>
-        <li>
-          Creación y edición de la función <code>resolveAccessToken()</code>
-        </li>
-        <li>
-          Creación de la función <code>convertCurrency($from, $to)</code>
-        </li>
+       <li>Edición de la función <code>convertCurrency($from, $to)</code></li>
      </ul>
     </li>
     <li>
@@ -44,8 +20,8 @@
       <pre>php artisan tinker</pre>
       <ul>
         <li><code>$conversion = resolve(App\Services\CurrencyConversionService::class);</code></li>
-        <li><code>$conversion->makeRequest('GET', '/api/v7/currencies');</code></li>
-        <li>Salir de tinker <code>exit</code></li>
+        <li><code>$conversion->convertCurrency('usd', 'mxn');</code></li>
+        <li>Salir de Tinker <code>exit</code></li>
       </ul>
     </li>
   </ol>
