@@ -4,17 +4,12 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Preparando el servicio de Stripe para procesar pagos con 3D Secure (SCA)</strong></h2>
+  <h2>Commit - <strong>Realizando la validación 3D Secure directamente con Stripe</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-    <li>
-      Creación de la carpeta <code>resources\views\stripe</code>
-      <ul>
-        <li>Creación y edición de la vista <code><resources\views\stripe\3d-secure.blade.php/code></li>
-      </ul>
-    </li>
+      <li>Edición de la vista <code><resources\views\stripe\3d-secure.blade.php/code></li>
   </ol>
   <!-- End Commit instructions -->
   
