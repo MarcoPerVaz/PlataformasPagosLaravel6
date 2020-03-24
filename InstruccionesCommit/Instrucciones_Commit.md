@@ -4,29 +4,48 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Configurando el servicio de conversión de monedas en Laravel</strong></h2>
+  <h2>Commit - <strong>Agregando un servicio en Laravel para convertir monedas</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-    <li>
-      Edición del archivo <code>config\services.php</code>
-      <em>
-        *Por estándar ordenar los servicios por orden alfabético (En este caso solo se ordenó en base a los nuevos servicios)
-      </em>
+   <li>
+     Creación y edición del archivo <code>app\Services\CurrencyConversionService.php</code>
+     <br>
+     <em>*No olvidar importar la clase <code>use Illuminate\Http\Request;</code></em>
+    <br>
+    <em>*No olvidar importar el servicio <code>use App\Traits\ConsumesExternalServices;</code></em>
+     <ul>
+       <li>
+         Creación y edición de la función constructor <code>__construct()</code>
+         <br>
+         <em>*No olvidar usar el trait <code>use ConsumesExternalServices;</code></em>
+         <br>
+         <em>*No olvidar usar la propiedad <code>protected $baseUri;</code></em>
+         <br>
+         <em>*No olvidar usar la propiedad <code>protected $apiKey;</code></em>
+        </li>
+        <li>
+          Creación y edición de la función <code>resolveAuthorization(&$queryParams, &$formParams, &$headers)</code>
+        </li>
+        <li>
+          Creación y edición de la función <code>decodeResponse($response)</code>
+        </li>
+        <li>
+          Creación y edición de la función <code>resolveAccessToken()</code>
+        </li>
+        <li>
+          Creación de la función <code>convertCurrency($from, $to)</code>
+        </li>
+     </ul>
     </li>
     <li>
-      Edición del archivo <code>.env</code>
+      Abrir Tinker
+      <pre>php artisan tinker</pre>
       <ul>
-        <li><code>CURRENCY_CONVERSION_BASE_URI=https://free.currconv.com</code></li>
-        <li><code>CURRENCY_CONVERSION_API_KEY=</code>llaveEnviadaAlCorreo</li>
-      </ul>
-    </li>
-    <li>
-      Edición del archivo <code>.env.example</code> para tener consistencia en caso de clonar el proyecto
-      <ul>
-        <li><code>CURRENCY_CONVERSION_BASE_URI=https://free.currconv.com</code></li>
-        <li><code>CURRENCY_CONVERSION_API_KEY=</code>llaveEnviadaAlCorreo</li>
+        <li><code>$conversion = resolve(App\Services\CurrencyConversionService::class);</code></li>
+        <li><code>$conversion->makeRequest('GET', '/api/v7/currencies');</code></li>
+        <li>Salir de tinker <code>exit</code></li>
       </ul>
     </li>
   </ol>
