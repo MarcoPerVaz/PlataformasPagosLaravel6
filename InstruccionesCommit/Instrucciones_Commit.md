@@ -4,25 +4,22 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Convirtiendo monedas con el servicio agregado a Laravel</strong></h2>
+  <h2>Commit - <strong>Creando una cuenta y agregando MercadoPago a la plataforma con Laravel</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-   <li>
-     Edición del archivo <code>app\Services\CurrencyConversionService.php</code>
-     <ul>
-       <li>Edición de la función <code>convertCurrency($from, $to)</code></li>
-     </ul>
+    <li>Ir a <a href="https://www.mercadopago.com.mx/developers">Mercado Pago para Desarrolladores</a></li>
+    <li>Iniciar sesión o crear una cuenta</li>
+    <li>Edición del archivo <code>database\seeds\PaymentPlatformTableSeeder.php</code></li>
+    <li>
+      Pegar la imagen descargada de los recursos del curso
+      <br>
+      1. <code>public\img\payment-platforms\mercadopago.jpg</code>
     </li>
     <li>
-      Abrir Tinker
-      <pre>php artisan tinker</pre>
-      <ul>
-        <li><code>$conversion = resolve(App\Services\CurrencyConversionService::class);</code></li>
-        <li><code>$conversion->convertCurrency('usd', 'mxn');</code></li>
-        <li>Salir de Tinker <code>exit</code></li>
-      </ul>
+      Ejecutar las migraciones, borrando y creandola de nuevo
+      <pre>php artisan migrate:fresh --seed</pre>
     </li>
   </ol>
   <!-- End Commit instructions -->
@@ -30,17 +27,7 @@
   <!-- Notes -->
   <h3>Notas:</h3>
   <ul>
-    <li>
-      API para conversión de monedas <a href="https://www.currencyconverterapi.com/">currencyconverterapi</a>
-      <ul>
-        <li>Ir a la <a href="https://www.currencyconverterapi.com/docs">Documentación oficial</a> </li>
-        <li>
-          Colocar un correo real para recibir la llave
-          <br>
-          <em>*Al correo llega la llave</em>
-        </li>
-      </ul>
-    </li>
+    
   </ul>
     
   <em>
