@@ -4,12 +4,12 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Realizando la validación 3D Secure directamente con Stripe</strong></h2>
+  <h2>Commit - <strong>Eligiendo un servicio de conversión de monedas</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-      <li>Edición de la vista <code><resources\views\stripe\3d-secure.blade.php/code></li>
+    
   </ol>
   <!-- End Commit instructions -->
   
@@ -17,13 +17,15 @@
   <h3>Notas:</h3>
   <ul>
     <li>
-      Documentación sobre <a href="https://stripe.com/docs/strong-customer-authentication/migration">SCA</a>
-    </li>
-    <li>
-      Documentación de <a href="https://stripe.com/docs/strong-customer-authentication/migration#one-time">un solo pago</a>
-    </li>
-    <li>
-      Documentación de <a href="https://stripe.com/docs/testing#regulatory-cards">Regulatory (3D Secure) test card numbers</a>
+      API para conversión de monedas <a href="https://www.currencyconverterapi.com/">currencyconverterapi</a>
+      <ul>
+        <li>Ir a <a href="https://free.currencyconverterapi.com/free-api-key">Para obtener la llave de la API</a></li>
+        <li>
+          Colocar un correo real para recibir la llave
+          <br>
+          <em>*Al correo llega la llave</em>
+        </li>
+      </ul>
     </li>
   </ul>
     
