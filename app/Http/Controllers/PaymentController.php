@@ -28,7 +28,7 @@ class PaymentController extends Controller
             'payment_platform'  => ['required', 'exists:payment_platforms,id'],
         ];
 
-        dd($request->all()); /* Corta el flujo y muestra la información enviada */
+        // dd($request->all()); /* Corta el flujo y muestra la información enviada */
 
         $request->validate($rules);
 
