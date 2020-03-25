@@ -4,32 +4,44 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Obteniendo y configurando las credenciales de la API de MercadoPago</strong></h2>
+  <h2>Commit - <strong>Creando un servicio en Laravel para usar la API de MercadoPago</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-    <li>Ir a <a href="https://www.mercadopago.com.mx/developers">Mercado Pago para Desarrolladores</a></li>
-    <li>Iniciar sesión o crear una cuenta</li>
-    <li>Ir a <a href="https://www.mercadopago.com/mlm/account/credentials">Para obtener las Credenciales</a></li>
-    <li>Edición del archivo <code>config\services.php</code></li>
     <li>
-      Edición del archivo <code>.env</code>
-      <br>
-      <code>MERCADOPAGO_BASE_URI=https://api.mercadopago.com</code>
-      <br>
-      <code>MERCADOPAGO_CLIENT_ID=</code>
-      <br>
-      <code>MERCADOPAGO_CLIENT_SECRET=</code>
-    </li>
-    <li>
-      Edición del archivo <code>.env.example</code> para tener consistencia en caso de clonar el proyecto
-      <br>
-      <code>MERCADOPAGO_BASE_URI=https://api.mercadopago.com</code>
-      <br>
-      <code>MERCADOPAGO_KEY=</code>
-      <br>
-      <code>MERCADOPAGO_SECRET=</code>
+      Creación y edición del archivo <code>app\Services\MercadoPagoService.php</code>
+      <ul>
+        <li>
+          Creación y edición de la función <code>__construct()</code>
+          <br>
+          <em>
+            *No olvidar agregar el trait y las propiedades protegidas
+            <br>
+            <code>use ConsumesExternalServices;</code>
+            <br>
+            <code>protected $baseUri;</code>
+            <br>
+            <code>protected $key;</code>
+            <br>
+            <code>protected $secret;</code>
+            <br>
+            <code>protected $base_currency;</code>
+          </em>
+        </li>
+        <li>Creación de la función <code>resolveAuthorization(&$queryParams, &$formParams, &$headers)</code></li>
+        <li>Creación y edición de la función <code>decodeResponse($response)</code></li>
+        <li>Creación de la función <code>resolveAccessToken()</code></li>
+        <li>Creación de la función <code>handlePayment(Request $request)</code></li>
+        <li>
+          Creación de la función <code>handleApproval()</code>
+          <br>
+          <em>
+            *MercadoPago no necesita esta función porque lo aprueba automáticamente pero se deja como referencia
+          </em>
+        </li>
+        <li>Creación de la función <code>resolveFactor($currency)</code></li>
+      </ul>
     </li>
   </ol>
   <!-- End Commit instructions -->
