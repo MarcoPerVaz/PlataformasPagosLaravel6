@@ -4,41 +4,24 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Solicitando el método de pago para cobrar con MercadoPago desde Laravel</strong></h2>
+  <h2>Commit - <strong>Resolviendo la red del método  de pago a usar en MercadoPago</strong></h2>
+  <br>
+  <em>*La red sería, si es visa, mastercard, american express</em>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-    <li>Creación y edición de la vista <code>resources\views\components\mercadopago-collapse.blade.php</code></li>
-    <li>
-      Ir a 
-      <a href="https://www.mercadopago.com.mx/developers/es/guides/payments/api/receiving-payment-by-card/">
-        Recibir pagos con tarjeta(incluir MercadoPago.js) - (Librería javascript de Mercado Pago)
-      </a>
-      <a href="https://www.mercadopago.com.co/developers/es/guides/payments/api/receiving-payment-by-card/">
-        Recibir pagos con tarjeta(incluir MercadoPago.js) - (Librería javascript de Mercado Pago)
-      </a>
-      <em>
-        *La documentación para México no pide tipo de documento por lo que se puso entre comentarios
-         window.Mercadopago.getIdentificationTypes();
-         <br>
-        *También los campos html que pedían el tipo de documento y su nombre
-      </em>
-      <ul>
-        <li>
-          Copiar
-          <code>src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"</code>
-        </li>
-        <li>Pegar rn la vista <code>resources\views\components\mercadopago-collapse.blade.php</code></li>
-      </ul>
-    </li>
+    <li>Edición de la vista <code>resources\views\components\mercadopago-collapse.blade.php</code></li>
   </ol>
   <!-- End Commit instructions -->
   
   <!-- Notes -->
   <h3>Notas:</h3>
   <ul>
-    
+    <li>
+      Documentación para hacer pruebas 
+      <a href="https://www.mercadopago.com.mx/developers/es/guides/payments/api/testing/">Tarjetas de prueba</a>
+    </li>
   </ul>
     
   <em>
