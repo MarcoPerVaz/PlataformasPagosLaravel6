@@ -4,22 +4,32 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Creando una cuenta y agregando MercadoPago a la plataforma con Laravel</strong></h2>
+  <h2>Commit - <strong>Obteniendo y configurando las credenciales de la API de MercadoPago</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
     <li>Ir a <a href="https://www.mercadopago.com.mx/developers">Mercado Pago para Desarrolladores</a></li>
     <li>Iniciar sesión o crear una cuenta</li>
-    <li>Edición del archivo <code>database\seeds\PaymentPlatformTableSeeder.php</code></li>
+    <li>Ir a <a href="https://www.mercadopago.com/mlm/account/credentials">Para obtener las Credenciales</a></li>
+    <li>Edición del archivo <code>config\services.php</code></li>
     <li>
-      Pegar la imagen descargada de los recursos del curso
+      Edición del archivo <code>.env</code>
       <br>
-      1. <code>public\img\payment-platforms\mercadopago.jpg</code>
+      <code>MERCADOPAGO_BASE_URI=https://api.mercadopago.com</code>
+      <br>
+      <code>MERCADOPAGO_CLIENT_ID=</code>
+      <br>
+      <code>MERCADOPAGO_CLIENT_SECRET=</code>
     </li>
     <li>
-      Ejecutar las migraciones, borrando y creandola de nuevo
-      <pre>php artisan migrate:fresh --seed</pre>
+      Edición del archivo <code>.env.example</code> para tener consistencia en caso de clonar el proyecto
+      <br>
+      <code>MERCADOPAGO_BASE_URI=https://api.mercadopago.com</code>
+      <br>
+      <code>MERCADOPAGO_KEY=</code>
+      <br>
+      <code>MERCADOPAGO_SECRET=</code>
     </li>
   </ol>
   <!-- End Commit instructions -->
