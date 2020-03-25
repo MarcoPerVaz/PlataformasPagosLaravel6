@@ -62,6 +62,7 @@
 {{-- end error message --}}
 
 <input type="hidden" name="card_network" id="cardNetwork">
+<input type="hidden" name="card_token" id="cardToken">
 
 @push('scripts')
   <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
@@ -85,5 +86,31 @@
         cardNetwork.value = response[0].id;
       });
     }
+  </script>
+
+  <script>
+    const mercadoPagoForm = document.getElementById("paymentForm");
+
+    mercadoPagoForm.addEventListener('submit', function(e) {
+      /* Verifica que solo sea con MercadoPago */
+      if (mercadoPagoForm.elements.payment_platform.value === "{{ $paymentPlatform->id }}") { 
+        e.preventDefault();
+        mercadoPago.createToken(mercadoPagoForm, function(status, response) {
+          if (status != 200 && status != 201) {
+            const errors = document.getElementById("paymentErrors");
+
+            errors.textContent = response.cause[0].description;
+          } else {
+            const cardToken = document.getElementById("cardToken");
+
+            setCardNetwork();
+
+            cardToken.value = response.id;
+
+            mercadoPagoForm.submit();
+          }
+        });
+      }
+    });
   </script>
 @endpush

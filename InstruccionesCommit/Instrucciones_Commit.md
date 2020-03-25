@@ -4,14 +4,18 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Resolviendo la red del método  de pago a usar en MercadoPago</strong></h2>
-  <br>
-  <em>*La red sería, si es visa, mastercard, american express</em>
+  <h2>Commit - <strong>Obteniendo un token que represente el método de pago en MercadoPago</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
     <li>Edición de la vista <code>resources\views\components\mercadopago-collapse.blade.php</code></li>
+    <li>
+      Edición del archivo <code>app\Services\MercadoPagoService.php</code>
+      <ul>
+        <li>Edición de la función <code>handlePayment(Request $request)</code></li>
+      </ul>
+    </li>
   </ol>
   <!-- End Commit instructions -->
   
@@ -19,7 +23,7 @@
   <h3>Notas:</h3>
   <ul>
     <li>
-      Documentación para hacer pruebas 
+      Documentación para hacer pruebas
       <a href="https://www.mercadopago.com.mx/developers/es/guides/payments/api/testing/">Tarjetas de prueba</a>
     </li>
   </ul>
