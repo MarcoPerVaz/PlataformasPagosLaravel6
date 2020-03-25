@@ -4,43 +4,32 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Creando un servicio en Laravel para usar la API de MercadoPago</strong></h2>
+  <h2>Commit - <strong>Solicitando el método de pago para cobrar con MercadoPago desde Laravel</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
+    <li>Creación y edición de la vista <code>resources\views\components\mercadopago-collapse.blade.php</code></li>
     <li>
-      Creación y edición del archivo <code>app\Services\MercadoPagoService.php</code>
+      Ir a 
+      <a href="https://www.mercadopago.com.mx/developers/es/guides/payments/api/receiving-payment-by-card/">
+        Recibir pagos con tarjeta(incluir MercadoPago.js) - (Librería javascript de Mercado Pago)
+      </a>
+      <a href="https://www.mercadopago.com.co/developers/es/guides/payments/api/receiving-payment-by-card/">
+        Recibir pagos con tarjeta(incluir MercadoPago.js) - (Librería javascript de Mercado Pago)
+      </a>
+      <em>
+        *La documentación para México no pide tipo de documento por lo que se puso entre comentarios
+         window.Mercadopago.getIdentificationTypes();
+         <br>
+        *También los campos html que pedían el tipo de documento y su nombre
+      </em>
       <ul>
         <li>
-          Creación y edición de la función <code>__construct()</code>
-          <br>
-          <em>
-            *No olvidar agregar el trait y las propiedades protegidas
-            <br>
-            <code>use ConsumesExternalServices;</code>
-            <br>
-            <code>protected $baseUri;</code>
-            <br>
-            <code>protected $key;</code>
-            <br>
-            <code>protected $secret;</code>
-            <br>
-            <code>protected $base_currency;</code>
-          </em>
+          Copiar
+          <code>src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"</code>
         </li>
-        <li>Creación de la función <code>resolveAuthorization(&$queryParams, &$formParams, &$headers)</code></li>
-        <li>Creación y edición de la función <code>decodeResponse($response)</code></li>
-        <li>Creación de la función <code>resolveAccessToken()</code></li>
-        <li>Creación de la función <code>handlePayment(Request $request)</code></li>
-        <li>
-          Creación de la función <code>handleApproval()</code>
-          <br>
-          <em>
-            *MercadoPago no necesita esta función porque lo aprueba automáticamente pero se deja como referencia
-          </em>
-        </li>
-        <li>Creación de la función <code>resolveFactor($currency)</code></li>
+        <li>Pegar rn la vista <code>resources\views\components\mercadopago-collapse.blade.php</code></li>
       </ul>
     </li>
   </ol>
