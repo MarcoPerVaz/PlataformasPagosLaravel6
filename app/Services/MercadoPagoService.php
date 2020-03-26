@@ -42,7 +42,7 @@ class MercadoPagoService
 
   public function resolveAccessToken()
   {
-    return $this->secret;;
+    return $this->secret;
   }
 
   public function handlePayment(Request $request)
@@ -53,6 +53,28 @@ class MercadoPagoService
   public function handleApproval()
   {
     //  MercadoPago no necesita esta función porque lo aprueba automáticamente pero se deja como referencia
+  }
+
+  public function createPayment($value, $currency, $cardNetwork, $cardToken, $email, $installments = 1)
+  {
+    return $this->makeRequest(
+      'POST', /* $method */
+      '/v1/payments',
+      [], /* $queryParams */
+      [ /* $formParams */
+        'payer' => [
+          'email' => $email,
+        ],
+        'binary_mode' => true, /* O es aceptada o es rechazada - sin (pendiente, espera de aprobación, etc) */
+        'transaction_amount' => round($value * $this->resolveFactor($currency)),
+        'payment_method_id' => $cardNetwork,
+        'token' => $cardToken,
+        'installments' => $installments,
+        'statement_descriptor' => config('app.name'),
+      ], 
+      [], /* $headers */
+      $isJsonRequest = true
+    );
   }
 
   public function resolveFactor($currency)
