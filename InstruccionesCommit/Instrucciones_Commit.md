@@ -4,16 +4,25 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Obteniendo un token que represente el método de pago en MercadoPago</strong></h2>
+  <h2>Commit - <strong>Decodificando y autenticando las peticiones a la API de MercadoPago</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-    <li>Edición de la vista <code>resources\views\components\mercadopago-collapse.blade.php</code></li>
     <li>
       Edición del archivo <code>app\Services\MercadoPagoService.php</code>
       <ul>
-        <li>Edición de la función <code>handlePayment(Request $request)</code></li>
+        <li>Edición de la función <code>resolveAccessToken()</code></li>
+        <li>Edición de la función <code>resolveAuthorization(&$queryParams, &$formParams, &$headers)</code></li>
+      </ul>
+    </li>
+    <li>
+      Abrir Tinker
+      <pre>php artisan tinker</pre>
+      <ul>
+        <li><code>$mercadoPago = resolve(App\Services\MercadoPagoService::class);</code></li>
+        <li><code>$mercadoPago->makeRequest('GET', '/v1/payment_methods');</code></li>
+        <li>Salir de Tinker <code>exit</code></li>
       </ul>
     </li>
   </ol>
@@ -23,8 +32,8 @@
   <h3>Notas:</h3>
   <ul>
     <li>
-      Documentación para hacer pruebas
-      <a href="https://www.mercadopago.com.mx/developers/es/guides/payments/api/testing/">Tarjetas de prueba</a>
+      Documentación oficial
+      <a href="https://www.mercadopago.com.mx/developers/es/reference/">¿Cómo funciona?</a>
     </li>
   </ul>
     
