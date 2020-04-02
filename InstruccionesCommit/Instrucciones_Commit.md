@@ -4,70 +4,47 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>*Agregando un nuevo servicio de conversión de moneda</strong></h2>
+  <h2>Commit - <strong>*Creando un pago con la API de MercadoPago desde Laravel</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-    <h3><em><strong>*Servicio agregado por mi, porque CurrencyConversion no funcionaba*</strong></em></h3>
-    <li>
-      Creación y edición del archivo <code>app\Services\exChangeRateService.php</code>
-      <br>
-      <em>*No olvidar importar <code>use App\Traits\ConsumesExternalServices;</code></em>
-      <ul>
-        <li>
-          Creación y edición de la función constructor <code>public function __construct()</code>
-          <br>
-          <em>*No olvidar agregar <code>use ConsumesExternalServices;</code></em>
-          <br>
-          <em>*No olvidar agregar <code>protected $baseUri;</code></em>
-          <br>
-          <em>*No olvidar agregar <code>protected protected $apiKey;</code></em> 
-        </li>
-        <li>
-          Creación y edición de la función 
-          <code>public function resolveAuthorization(&$queryParams, &$formParams, &$headers)</code>
-        </li>
-        <li>
-          Creación y edición de la función <code>public function decodeResponse($response)</code>
-        </li>
-        <li>
-          Creación y edición de la función <code>public function resolveAccessToken()</code>
-        </li>
-        <li>
-          Creación y edición de la función <code>public function convertCurrency($from, $to)</code>
-        </li>
-      </ul>
-    </li>
-    <li>
-      Edición del archivo <code>config\services.php</code>
-      <br>
+    <h3>
       <em>
-        *Por estándar ordenar los servicios por orden alfabético (En este caso solo se ordenó en base a los nuevos
-        servicios)
-      </em>
-    </li>
+        <strong>
+          *Modificación del original porque CurrencyService no funcionaba y se tuvo que cambiar
+          de servicio de conversión de monedas a ExchangeRate-API*
+        </strong>
+    </em>
+    </h3>
     <li>
-      Edición del archivo <code>.env</code>
+      Edición del archivo <code>app\Services\MercadoPagoService.php</code>
       <ul>
-        <li><code>EX_CHANGE_CONVERSION_BASE_URI=https://prime.exchangerate-api.com</code></li>
-        <li><code>EX_CHANGE_CONVERSION_API_KEY=</code>llaveAPI</li>
+        <li>
+          Edición de la función constructor <code>__construct(exChangeRateService $converter)</code>
+          <br>
+          <em>*No olvidar importar <code>use App\Services\exChangeRateService;</code></em>
+        </li>
       </ul>
     </li>
     <li>
-      Edición del archivo <code>.env.example</code> para tener consistencia en caso de clonar el proyecto
-      <ul>
-        <li><code>EX_CHANGE_CONVERSION_BASE_URI=https://prime.exchangerate-api.com</code></li>
-        <li><code>EX_CHANGE_CONVERSION_API_KEY=</code></li>
-      </ul>
-    </li>
-    <li>
+      Crear un pago desde la consola usando Tinker
+      <br>
       Abrir Tinker
       <pre>php artisan tinker</pre>
       <ul>
-        <li><code>$conversion = resolve(App\Services\exChangeRateService::class);</code></li>
-        <li><code>$conversion->convertCurrency('usd', 'mxn');</code></li>
-        <li>Salir de Tinker <code>exit</code></li>
+        <li><code>$mercadoPago = resolve(App\Services\MercadoPagoService::class);</code></li>
+        <li>
+          <code>
+            $mercadoPago->createPayment(500, 'usd', 'visa', '618f03f9836157728b3dd20fb666fe2a', 'test@testing.com');
+          </code>
+          <br>
+          <em>
+            *Dónde 
+            <code>618f03f9836157728b3dd20fb666fe2a</code> se obtiene al enviar un pago desde la interfaz de la aplicación 
+            con Laravel
+          </em>
+        </li>
       </ul>
     </li>
   </ol>
@@ -76,10 +53,7 @@
   <!-- Notes -->
   <h3>Notas:</h3>
   <ul>
-    <li>
-      Documentación oficial
-      <a href="https://www.exchangerate-api.com/docs/standard-requests">ExchangeRate-API</a>
-    </li>
+   
   </ul>
     
   <em>
