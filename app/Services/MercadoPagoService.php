@@ -48,7 +48,34 @@ class MercadoPagoService
 
   public function handlePayment(Request $request)
   {
-    dd($request->all()); 
+    $request->validate([
+      'card_network' => 'required',
+      'card_token'   => 'required',
+      'email'        => 'required',
+    ]);
+
+    $payment = $this->createPayment(
+      $request->value,
+      $request->currency,
+      $request->card_network,
+      $request->card_token,
+      $request->email
+    );
+
+    if ($payment->status === 'approved') {
+      $name = $payment->payer->first_name;
+      $currency = strtoupper($payment->currency_id);
+      $amount = number_Format($payment->transaction_amount, 0, ',', '.'); /* Darle formato al valor de la transacción */
+
+      $originalAmount = $request->value;
+      $originalCurrency = strtoupper($request->currency);
+
+      return redirect()->route('home')
+        ->withSuccess(['payment' => "Thanks, {$name}. 
+            We received your {$originalAmount}{$originalCurrency} payment ({$amount}{$currency})."]);
+    }
+    return redirect()->route('home')
+      ->withErrors('We were unable to confirm your payment. Try again, please');
   }
 
   public function handleApproval()

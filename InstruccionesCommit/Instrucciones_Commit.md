@@ -4,46 +4,18 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>*Creando un pago con la API de MercadoPago desde Laravel</strong></h2>
+  <h2>Commit - <strong>Procesando desde Laravel un pago con MercadoPago</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
-    <h3>
-      <em>
-        <strong>
-          *Modificación del original porque CurrencyService no funcionaba y se tuvo que cambiar
-          de servicio de conversión de monedas a ExchangeRate-API*
-        </strong>
-    </em>
-    </h3>
     <li>
       Edición del archivo <code>app\Services\MercadoPagoService.php</code>
       <ul>
         <li>
-          Edición de la función constructor <code>__construct(exChangeRateService $converter)</code>
+          Edición de la función <code>handlePayment(Request $request)</code>
           <br>
           <em>*No olvidar importar <code>use App\Services\exChangeRateService;</code></em>
-        </li>
-      </ul>
-    </li>
-    <li>
-      Crear un pago desde la consola usando Tinker
-      <br>
-      Abrir Tinker
-      <pre>php artisan tinker</pre>
-      <ul>
-        <li><code>$mercadoPago = resolve(App\Services\MercadoPagoService::class);</code></li>
-        <li>
-          <code>
-            $mercadoPago->createPayment(500, 'usd', 'visa', '618f03f9836157728b3dd20fb666fe2a', 'test@testing.com');
-          </code>
-          <br>
-          <em>
-            *Dónde 
-            <code>618f03f9836157728b3dd20fb666fe2a</code> se obtiene al enviar un pago desde la interfaz de la aplicación 
-            con Laravel
-          </em>
         </li>
       </ul>
     </li>
