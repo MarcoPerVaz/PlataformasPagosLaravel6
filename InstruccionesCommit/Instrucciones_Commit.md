@@ -4,20 +4,15 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Procesando desde Laravel un pago con MercadoPago</strong></h2>
+  <h2>Commit - <strong>Agregando a PayU a la plataforma de pagos con Laravel</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
+    <li>Edición del archivo <code>database\seeds\PaymentPlatformTableSeeder.php</code></li>
     <li>
-      Edición del archivo <code>app\Services\MercadoPagoService.php</code>
-      <ul>
-        <li>
-          Edición de la función <code>handlePayment(Request $request)</code>
-          <br>
-          <em>*No olvidar importar <code>use App\Services\exChangeRateService;</code></em>
-        </li>
-      </ul>
+      Rehacer las migraciones
+      <pre>php artisan migrate:fresh --seed</pre>
     </li>
   </ol>
   <!-- End Commit instructions -->
