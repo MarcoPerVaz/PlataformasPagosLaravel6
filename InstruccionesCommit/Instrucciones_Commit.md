@@ -4,13 +4,32 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Solicitando el método de pago para cobrar con PayU desde Laravel</strong></h2>
+  <h2>Commit - <strong>Autenticando las peticiones a la APi de PayU</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
     <li>Documentación <a href="http://developers.payulatam.com/es/api/payments.html">Métodos de pago con PayU</a></li>
-    <li>Creación y edición de la vista <code>resources\views\components\payu-collapse.blade copy.php</code></li>
+    <li>
+      Edición del archivo <code>app\Services\PayUService.php</code>
+      <ul>
+        <li>Edición de la función <code>resolveAuthorization(&$queryParams, &$formParams, &$headers)</code></li>
+      </ul>
+    </li>
+    <li>
+      Abrir Tinker
+      <pre>php artisan tinker</pre>
+      <ul>
+        <li><code>$payU = resolve(App\Services\PayUService::class);</code></li>
+        <li>
+          <code>
+            $payU->makeRequest('POST', '/payments-api/4.0/service.cgi', [], ['language' => 'es', 'command' =>
+            'GET_PAYMENT_METHODS'], ['Accept' => 'application/json'], true);
+          </code>
+        </li>
+        <li>Salir de Tinker <code>ecit</code></li>
+      </ul>
+    </li>
   </ol>
   <!-- End Commit instructions -->
   
