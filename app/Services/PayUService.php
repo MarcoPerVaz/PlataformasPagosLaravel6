@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Traits\ConsumesExternalServices;
 use App\Services\CurrencyConversionService;
 use App\Services\exChangeRateService;
+use Illuminate\Support\Str;
 
 class PayUService
 {
@@ -86,25 +87,69 @@ class PayUService
     //  PayU no necesita esta función porque lo aprueba automáticamente pero se deja como referencia
   }
 
-  public function createPayment($value, $currency, $cardNetwork, $cardToken, $email, $installments = 1)
+  public function createPayment($value, $currency, $name, $email, $card, $cvc, $year, $month, 
+    $network, $installments = 1, $paymentCountry = 'MX')
   {
     /* Esto se va a reutilizar llegado el momento */
     return $this->makeRequest(
       'POST', /* $method */
-      '/v1/payments',
+      '/payments-api/4.0/service.cgi',
       [], /* $queryParams */
       [ /* $formParams */
-        'payer' => [
-          'email' => $email,
+        'language' => $language = config('app.locale'), /* $language se usa más abajo pero aquí se declara */
+        'command' => 'SUBMIT_TRANSACTION',
+        'test' => false, 
+        'transaction' => [
+          'type' => 'AUTHORIZATION_AND_CAPTURE',
+          'paymentMethod' => strtoupper($network), /* Se define en el parámetro */
+          'paymentCountry' => strtoupper($paymentCountry), /* Se define en el parámetro */
+          'deviceSessionId' => session()->getId(), /* El Id de la sesión - lo proporciona Laravel */
+          'ipAddress' => request()->ip(), /* Ip de la máquina */
+          'userAgent' => request()->header('User-Agent'), /* Navegador usado para procesar el pago */
+          'creditCard' => [
+            'number' => $card, /* Se define en el parámetro */
+            'securityCode' => $cvc, /* Se define en el parámetro */
+            'expirationDate' => "{$year}/{$month}", /* Se definen en el parámetro */
+            'name' => 'APPROVED',
+          ], 
+          'extraParameters' => [
+            'INSTALLMENTS_NUMBER' => $installments,
+          ],
+          'payer' => [
+            'fullName' => $name, /* Se define en el parámetro */
+            'emailAddress' => $email, /* Se define en el parámetro */
+          ],
+          'order' => [
+            'accountId' => $this->accountId, /* protected $accountId; */
+            'referenceCode' => $reference = Str::random(12), /* Genera un string random de 12 caracteres */
+            'description' => 'Testing PayU', /* Puede ser dinámico pasandose como parámetro en la función */
+            'language' => $language,
+            'signature' => 
+                $this->generateSignature($reference, $value = round($value * $this->resolveFactor($currency))),
+                /* 
+                  $reference se declara un poco más arriba, $value se define como parámetro y es igual al
+                  redondode de $value multiplicado por valor de conversión de la moneda(función resolveFactor())
+                */
+            'additionalValues' => [
+              'TX_VALUE' => [
+                'value' => $value, /* Se define en el parámetro */
+                'currency' => $this->baseCurrency, /* protected $baseCurrency; */
+              ],
+              'buyer' => [
+                'fullName' => $name, /* Se define en el parámetro */
+                'emailAddress' => $email, /* Se define en el parámetro */
+                'shippingAddress' => [
+                  'street1' => '',
+                  'city' => '',
+                ], 
+              ],
+            ],
+          ],
         ],
-        'binary_mode' => true, /* O es aceptada o es rechazada - sin (pendiente, espera de aprobación, etc) */
-        'transaction_amount' => round($value * $this->resolveFactor($currency)),
-        'payment_method_id' => $cardNetwork,
-        'token' => $cardToken,
-        'installments' => $installments,
-        'statement_descriptor' => config('app.name'),
       ], 
-      [], /* $headers */
+      [ /* $headers */
+        'Accept' => 'application/json',
+      ], 
       $isJsonRequest = true
     );
   }

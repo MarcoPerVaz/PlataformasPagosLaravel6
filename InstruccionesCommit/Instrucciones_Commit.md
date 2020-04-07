@@ -4,7 +4,7 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Generando una firma para procesar un pago con PayU</strong></h2>
+  <h2>Commit - <strong>Creando un pago con la API de PayU desde Laravel</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
@@ -16,17 +16,13 @@
     <li>
       Edición del archivo <code>app\Services\PayUService.php</code>
       <ul>
-        <li>Edición de la función <code>generateSignature()</code></li>
-        <li>Edición de la función constructor <code>__construct(exChangeRateService $converter)</code></li>
-      </ul>
-    </li>
-    <li>
-      Abrir Tinker
-      <pre>php artisan tinker</pre>
-      <ul>
-        <li><code>$payU = resolve(App\Services\PayUService::class);</code></li>
-        <li><code>$payU->generateSignature('Pago de prueba', '20000');</code></li>
-        <li>Salir de tinker <code>exit</code></li>
+        <li>
+          Edición de la función 
+          <code>createPayment($value, $currency, $name, $email, $card, $cvc, $year, $month,
+          $network, $installments = 1, $paymentCountry = 'MX')</code>
+          <br>
+          <em>*No olvidar importar <code>use Illuminate\Support\Str;</code></em>
+        </li>
       </ul>
     </li>
   </ol>
