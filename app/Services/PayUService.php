@@ -90,7 +90,6 @@ class PayUService
   public function createPayment($value, $currency, $name, $email, $card, $cvc, $year, $month, 
     $network, $installments = 1, $paymentCountry = 'MX')
   {
-    /* Esto se va a reutilizar llegado el momento */
     return $this->makeRequest(
       'POST', /* $method */
       '/payments-api/4.0/service.cgi',
@@ -135,14 +134,14 @@ class PayUService
                 'value' => $value, /* Se define en el parámetro */
                 'currency' => $this->baseCurrency, /* protected $baseCurrency; */
               ],
-              'buyer' => [
-                'fullName' => $name, /* Se define en el parámetro */
-                'emailAddress' => $email, /* Se define en el parámetro */
-                'shippingAddress' => [
-                  'street1' => '',
-                  'city' => '',
-                ], 
-              ],
+            ],
+            'buyer' => [
+              'fullName' => $name, /* Se define en el parámetro */
+              'emailAddress' => $email, /* Se define en el parámetro */
+              'shippingAddress' => [
+                'street1' => '',
+                'city' => '',
+              ], 
             ],
           ],
         ],

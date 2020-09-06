@@ -4,24 +4,27 @@
   <!-- End Title -->
 
   <!-- Commit name -->
-  <h2>Commit - <strong>Creando un pago con la API de PayU desde Laravel</strong></h2>
+  <h2>Commit - <strong>Comprobando la creación de pagos con PayU desde Laravel</strong></h2>
   <!-- End Commit name -->
   
   <!-- Commit instructions -->
   <ol>
     <li>Documentación <a href="http://developers.payulatam.com/es/api/payments.html">Métodos de pago con PayU</a></li>
     <li>
-      Documentación <a href="http://developers.payulatam.com/es/api/considerations.html">Consideraciones sobre variables</a>
-    </li>
-    <li>
-      Edición del archivo <code>app\Services\PayUService.php</code>
+      Abrir Tinker
+      <pre>php artisan tinker</pre>
       <ul>
+        <li><code>$payU = resolve(App\Services\PayUService::class);</code></li>
         <li>
-          Edición de la función 
-          <code>createPayment($value, $currency, $name, $email, $card, $cvc, $year, $month,
-          $network, $installments = 1, $paymentCountry = 'MX')</code>
+          <code>
+            $payU->createPayment(20000, 'MXN', 'Testing PayU', 'test@testing.com', '4772910000000008', 321, '2020', '12', 'VISA');
+            $payU->createPayment(764, 'MXN', 'Jos Rodriguez', 'test@test.com', '4745440951231455', 995, '2021', '02', 'VISA');
+            $payU->createPayment(5, 'USD', 'APPROVED', 'test@payulatam.com', '4111111111111111', '123', '2026', '02', 'VISA');
+          </code>
           <br>
-          <em>*No olvidar importar <code>use Illuminate\Support\Str;</code></em>
+          <em>*Para generar datos aleatorios de tarjetas <a href="https://www.bestccgen.com/">bestccgen</a></em>
+          <br>
+          <em>*Los datos del pago se obtienen de la respuesta json en el array creditcard</em>
         </li>
       </ul>
     </li>
